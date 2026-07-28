@@ -8,7 +8,7 @@ import java.net.http.HttpResponse;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
  
-public class Ex4 {
+public class AnaliseForense {
     public static void main(String[] args) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         ObjectMapper mapper = new ObjectMapper();
@@ -24,7 +24,7 @@ public class Ex4 {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             JsonNode jsonNode = mapper.readTree(response.body());
             String status = jsonNode.get("status").asText();
-            String url = jsonNode.get("location").get("url").asText();
+            String url = jsonNode.get("episode").get(0).asText();
  
             if (status.equals("Dead")) {
                 HttpRequest request_name = HttpRequest.newBuilder()
@@ -34,8 +34,8 @@ public class Ex4 {
  
                 HttpResponse<String> response_name = client.send(request_name, HttpResponse.BodyHandlers.ofString());
                 JsonNode jsonNode2 = mapper.readTree(response_name.body());
-                String name = jsonNode.get("name").asText();
-                System.out.println("[ALERTA FORENSE] O último registo do alien morto foi no episódio: " + name+ ".");
+                String nome = jsonNode2.get("name").asText();
+                System.out.println("[ALERTA FORENSE] O último registo do alien morto foi no episódio: " + nome + ".");
  
             }
  
