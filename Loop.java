@@ -21,11 +21,9 @@ public class Loop {
         }
 
         
-        /* 
         System.out.println(response.statusCode());
         System.out.println(response.uri());
         System.out.println(response.body());
-        */
         
 
     }
