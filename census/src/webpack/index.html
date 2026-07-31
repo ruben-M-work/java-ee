@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+ 
+<head>
+    <meta charset="UTF-8">
+    <title>Censo Rick & Morty</title>
+</head>
+ 
+<body>
+ 
+    <h1>CENSO RICK & MORTY</h1>
+ 
+    <form action="/api/census" method="get">
+ 
+        <label for="offset">Offset:</label><br>
+        <input
+            type="text"
+            id="offset"
+            name="offset"
+            value="1">
+        <br><br>
+ 
+        <label for="limit">Limit:</label><br>
+        <input
+            type="text"
+            id="limit"
+            name="limit"
+            value="20">
+        <br><br>
+ 
+        <label for="showAlerts">
+            Mostrar alertas (true/false):
+        </label><br>
+        <input
+            type="text"
+            id="showAlerts"
+            name="showAlerts"
+            value="true">
+        <br><br>
+ 
+        <input
+            type="submit"
+            value="Executar Censo">
+ 
+    </form>
+ 
+</body>
+ 
+</html>
+ 
